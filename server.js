@@ -7,7 +7,7 @@ const { createClient } = require('@supabase/supabase-js');
 // --- CONFIGURATION ---
 const PORT = process.env.PORT || 3000;
 const SUPABASE_URL = 'https://zbzwgvnxrrjvwgnobmom.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpiendndm54cnJqdndnbm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNzE1NDIsImV4cCI6MjA3NDc0NzU0Mn0.TuaeOFaOouijWCO0WWYww5nO5x6h5aNt7mcViteXjp0';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpiendndm54cnJqdndnbm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNzE1NDIsImV4cCI6MjA3NDc0NzU0Mn0.TuaeOFaOouijWCO0WWYww5nO5x6h5aNt7mcViteXjp0';
 
 // --- INITIALIZATION ---
 const app = express();
@@ -289,29 +289,4 @@ function getHtmlContent() {
 </html>
     `;
 }
-```
 
-### How to Run This Application
-
-1.  **Create a Project Folder:** Make a new directory for your project (e.g., `realtime-editor`).
-2.  **Save the Files:** Inside that folder, save the two code blocks above as `package.json` and `server.js`.
-3.  **Install Dependencies:** Open your terminal in the project folder and run the command:
-    ```bash
-    npm install
-    ```
-4.  **Supabase Setup:**
-    * Go to your Supabase project dashboard.
-    * Click on the "SQL Editor" in the left sidebar.
-    * Click "+ New query" and run the following SQL command to create the table that will store the code. This only needs to be done once.
-        ```sql
-        CREATE TABLE code_rooms (
-          room_id TEXT PRIMARY KEY,
-          content TEXT,
-          last_updated TIMESTAMPTZ DEFAULT NOW()
-        );
-        ```
-    * Your Row Level Security (RLS) is likely disabled by default, which is fine for this example. For a production app, you would want to enable RLS and create policies to secure your data.
-5.  **Start the Server:** In your terminal, run:
-    ```bash
-    npm start
-    
